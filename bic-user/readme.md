@@ -1,8 +1,8 @@
 ## Topcoder: [bic-user's](https://www.topcoder.com/members/bic-user/) implementation
 
-#### Official Building Footprint [Metric](https://github.com/SpaceNetChallenge/utilities#evaluation-metric) Score: 0.168605
+#### Official [Building Footprint Metric](https://github.com/SpaceNetChallenge/utilities#evaluation-metric) Score: 0.168605
 
-#### Competition: [SpaceNet Challenge 1](http://crowdsourcing.topcoder.com/spacenet) - Rio de Janeiro Building Footprint Extraction
+#### Competition: [SpaceNet Challenge 1 - Rio de Janeiro Building Footprint Extraction](http://crowdsourcing.topcoder.com/spacenet)
 
 #### Dataset: [SpaceNet AWS S3](https://aws.amazon.com/public-datasets/spacenet/)
 
