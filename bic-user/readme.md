@@ -1,12 +1,14 @@
 ## Topcoder: [bic-user's](https://www.topcoder.com/members/bic-user/) implementation
 
-#### Official [Building Footprint Metric](https://github.com/SpaceNetChallenge/utilities#evaluation-metric) Score: 0.168605
-
 #### Competition: [SpaceNet Challenge 1 - Rio de Janeiro Building Footprint Extraction](http://crowdsourcing.topcoder.com/spacenet)
+
+#### Rank in competition: 5
+
+#### Official [Building Footprint Metric](https://medium.com/the-downlinq/the-spacenet-metric-612183cc2ddb#.q0v9inh3i) Score: 0.168605
 
 #### Dataset: [SpaceNet AWS S3](https://aws.amazon.com/public-datasets/spacenet/)
 
-#### Appoach:
+#### Approach:
 This implementation uses a fully convolutional network (FCN), based on this [paper](https://goo.gl/FlcsMg). In addition, the approach uses a custom post-processing developed to merge and polygonize network output. Source code is included in this repository. The code is also hosted in a working Amazon Machine Instance located [here](https://aws.amazon.com/).
 
 
