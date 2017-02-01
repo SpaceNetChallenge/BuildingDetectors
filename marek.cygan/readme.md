@@ -1,4 +1,4 @@
-## Topcoder: [bic-user's](https://www.topcoder.com/members/marek.cygan/) implementation
+## Topcoder: [marek.cygan's](https://www.topcoder.com/members/marek.cygan/) implementation
 
 #### Competition: [SpaceNet Challenge 1 - Rio de Janeiro Building Footprint Extraction](http://crowdsourcing.topcoder.com/spacenet)
 
