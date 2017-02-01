@@ -4,7 +4,7 @@
 
 #### Competition: [SpaceNet Challenge 1](http://crowdsourcing.topcoder.com/spacenet) - Rio de Janeiro Building Footprint Extraction
 
-#### Dataset: [AWS S3](https://aws.amazon.com/public-datasets/spacenet/)
+#### Dataset: [SpaceNet AWS S3](https://aws.amazon.com/public-datasets/spacenet/)
 
 #### Appoach:
 Uses a fully convolutional network (FCN), mostly following this [paper](https://goo.gl/FlcsMg). In addition, uses custom post-processing developed to merge and polygonise network output.
