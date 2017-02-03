@@ -1,0 +1,44 @@
+Preprocess SpaceNet Images
+
+1. Dependecies:
+    1) python 2.7
+    2) skimage (or opencv): pip install -U scikit-image
+    3) GEOS: build from source
+        a) ./configure --prefix=/where/you/want/to/build
+        b) make
+        c) make install
+        d) add path 
+    4) GDAL(1.11.5)
+        a) Download srouce code and tar
+        b) cd to gdal/source_code/path
+        c) ./configure --with-python --prefix=GDAL_PREFIX -with-geos=yes
+        d) make
+        e) make install
+        f) add GDAL to PATH:(.bashrc)
+            export PATH=GDAL_PREFIX/bin:$PATH
+            export LD_LIBRARY_PATH=GDAL_PREFIX/lib:$LD_LIBRARY_PATH
+            export GDAL_DATA=GDAL_PREFIX/share/gdal
+        g) add gdal for python
+            cd to gdal/source_code/path/swig/python
+            edit setup.cfg, change: gdal_config = GDAL_PREFIX/bin/gdal-config
+            python setup.py build
+            python setup.py install
+        h) try from osgeo import gdal, osr, ogr in python
+    5) Proj.4(4.9.3)
+        a) Download Proj4 source code and tar
+        b) cd to proj4/source_code/path
+        c) ./configure --prefix=PROJ4_PREFIX
+        d) make
+        e) make install
+
+2. Data Directory
+    1) 3band_images: ./data/3band
+    2) geoJson files: ./data/geoJson
+    3) pixel_geojson files: ./data/pixelGeoJson
+    4) predict_label_map files: ./data/predict_label_map
+    5) predict_json files: ./data/predict_pixelGeoJson
+
+3. main.py : convert wgs84_geojson to pixel_geojson file from folder geojson to pixelGeoJson
+4. put the .mat predicted to the ./data/predict_label_map
+5. $python ./script/convert_label_map_to_geojson.py   or  $python ./script/convert_label_map_to_geojson_hull.py
+6. $python ./script/evaluateScene_all.py ./data/predict_pixelGeoJson/
