@@ -18,16 +18,16 @@ The two options that were considered to create polygons with this model were:
 This implementation takes the second option drawing inspiration from the article by Liu et al. [2]. Source code is included in this repository. The code is also hosted in a working Amazon Machine Instance located [here](https://aws.amazon.com/).
 
 ##### Computational pipeline
-First, we try to classify pixels into 3 categories - inside, outside and border, where the border is defined as everything which is inside and at most 4 pixels away from the building boundary as shown below.
+First, I try to classify pixels into 3 categories - inside, outside and border, where the border is defined as everything which is inside and at most 4 pixels away from the building boundary as shown below.
 
 ![](https://github.com/SpaceNetChallenge/BuildingDetectors/blob/master/marek.cygan/images/image1.png)
 
-Next, given the original image and the predicted heatmap we split into a 50×50 grid, where in each of the 2500 pieces we have a set of default 16 rectangles (called default boxes in [2]) depicted in Fig. 2. For each of the rectangles we want to predict whether this default rectangle has an IoU with some building footprint above the threshold of 0.5. If it does, similarly as in [2] we have a regressor for changing its width, height, translation. The one additional regressor comparing to [2] is angle - in [2] all the rectangles are axis parallel and using a regressor we allow rotation.
+Next, given the original image and the predicted heatmap I split into a 50×50 grid, where in each of the 2500 pieces I have a set of default 16 rectangles (called default boxes in [2]) depicted in Fig. 2. For each of the rectangles I want to predict whether this default rectangle has an IoU with some building footprint above the threshold of 0.5. If it does, similarly as in [2] I have a regressor for changing its width, height, translation. The one additional regressor comparing to [2] is angle - in [2] all the rectangles are axis parallel and using a regressor I allow rotation.
 
 ![](https://github.com/SpaceNetChallenge/BuildingDetectors/blob/master/marek.cygan/images/image2.png)
 
 ##### Architecture
-For predicting the heatmap, we build the following architecture using dilated convolutions [3]. All convolutions are 3 × 3 and do not change the size of the image which remains 400 × 400 throughout the process.
+For predicting the heatmap, I build the following architecture using dilated convolutions [3]. All convolutions are 3 × 3 and do not change the size of the image which remains 400 × 400 throughout the process.
 
 1. input was rescaled image of size 400 convolution with 16 filters, dilation 2, × 400 with 11 channels (all bands),
 2. convolution with 16 filters, dilation 1,
