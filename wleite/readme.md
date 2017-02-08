@@ -15,13 +15,13 @@ After reading the problem statement and examining the provided images for a whil
 * Evaluate polygon candidates, in order to select the ones with higher chance to be correct and discard the others;
 * Change each polygon a bit (moving, rotating, resizing), reevaluate it (using the same evaluation function mentioned above) and keep the new polygon if it has a better score (higher probability to be correct).
 
-In practice, after trying many different ways of implementing it, we had to abandon the last step (polygon small improvements) of initially considered solution, as it only decreases the score. WE still believe that it should help, if implemented in a better way.
+In practice, after trying many different ways of implementing it, I had to abandon the last step (polygon small improvements) of initially considered solution, as it only decreases the score. I still believe that it should help, if implemented in a better way.
 
-During the final days of the competition we added another way of classify pixels, based on their distance to the border (in fact, regression was used, as it outputs a continuous numeric result). In practice, it didn’t work well, but we decided to keep it, and use it as a feature in the polygon evaluation step. The following sections describe the main steps of the final solution, after some general observations.
+During the final days of the competition I added another way of classify pixels, based on their distance to the border (in fact, regression was used, as it outputs a continuous numeric result). In practice, it didn’t work well, but I decided to keep it, and use it as a feature in the polygon evaluation step. The following sections describe the main steps of the final solution, after some general observations.
 
 Provided Data:
 
-The number of provided training images didn’t seem very high, but after working with them for few days it was clear that it is large enough, which made sense since each image can contain many buildings. We decided to split the given training images into 3 sets: 60% for pixel classification training, 30% for polygon evaluation training and 10% for local tests. During the competition, we usually used a subset of these sets to run quicker tests. It is worth mentioning that we changed the seed (and therefore the way sets were split) couple of times to avoid some bias, but test results showed that sets were big and random enough.
+The number of provided training images didn’t seem very high, but after working with them for few days it was clear that it is large enough, which made sense since each image can contain many buildings. I decided to split the given training images into 3 sets: 60% for pixel classification training, 30% for polygon evaluation training and 10% for local tests. During the competition, I usually used a subset of these sets to run quicker tests. It is worth mentioning that I changed the seed (and therefore the way sets were split) couple of times to avoid some bias, but test results showed that sets were big and random enough.
 
 Images Resolution:
 
@@ -40,13 +40,13 @@ It builds two random forests of binary classification trees: one that classifies
 
 ![](https://github.com/SpaceNetChallenge/BuildingDetectors/blob/master/wleite/images/image1.png)
 
-Although our solution uses 2 different binary classification forests, a single classification forest, with 3 different classes could be used. In theory, it would give similar or slightly better results. we just kept this way because we first implemented a binary classification forest for “is building” or not. And after a while added the border classification code.
+Although our solution uses 2 different binary classification forests, a single classification forest, with 3 different classes could be used. In theory, it would give similar or slightly better results. I just kept this way because I first implemented a binary classification forest for “is building” or not. And after a while added the border classification code.
 
-The third random forests built has regression trees that should output the distance of a pixel from the border of a building. The valid range is from 0 (in the border) to 11. Pixels inside building receive positive values, and outside pixels have negative values, so the actual range is from -11 to 11. The Manhattan distance was used for simplicity, however, in retrospect, we believe that using the regular Euclidian distance would be better. The following figure shows an example image with the assigned distance values: (red to yellow) for positive values, and (blue darker to lighter) for negative values.
+The third random forests built has regression trees that should output the distance of a pixel from the border of a building. The valid range is from 0 (in the border) to 11. Pixels inside building receive positive values, and outside pixels have negative values, so the actual range is from -11 to 11. The Manhattan distance was used for simplicity, however, in retrospect, I believe that using the regular Euclidian distance would be better. The following figure shows an example image with the assigned distance values: (red to yellow) for positive values, and (blue darker to lighter) for negative values.
 
 ![](https://github.com/SpaceNetChallenge/BuildingDetectors/blob/master/wleite/images/image2.png)
 
-The resulting random forests were saved into 3 files: rfBorder.dat, rfBuilding.dat and rfDist.dat. My final submission has 60 trees for each random forest. This number was chosen because we used a 64-core machine during the last days of the competition, and each tree is built by a single thread. Using a higher number of trees won’t help much here.
+The resulting random forests were saved into 3 files: rfBorder.dat, rfBuilding.dat and rfDist.dat. My final submission has 60 trees for each random forest. This number was chosen because I used a 64-core machine during the last days of the competition, and each tree is built by a single thread. Using a higher number of trees won’t help much here.
 
 The features used were the same for the 3 forests, and although I tried different features, I didn’t have time to fully explore the possibilities here, including discarding some useless/misleading features. My final submission used 96 features [5 regions * (4 “channels” * 3 “stats features” + 2 “channels” * 2 “texture features”) + 8 channels * 2 features]:
 
