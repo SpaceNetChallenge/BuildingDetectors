@@ -19,7 +19,7 @@ Gradient Boosting Decision Tree (GBDT) and polygons with less
 confidence are removed.
 
 Part 3 is a characteristic part of this method. Precision was significantly
-improved by using part 3. Part 1 may not be so different from existing or other competitors’ methods. Recall was not so good compared with precision. Part 2 may be too simple and primitive. Source code is included in this repository. The code is also hosted in a working Amazon Machine Instance located [here](https://aws.amazon.com/).
+improved by using part 3. Part 1 may not be so different from existing or other competitors’ methods. Recall was not so good compared with precision. Part 2 may be too simple and primitive. Source code is included in this repository.
 
 #### Detailed description of the algorithm
 ##### Part 1: Probability prediction by FCN (train[line:138] for training / pred_proc [line:354] for prediction)

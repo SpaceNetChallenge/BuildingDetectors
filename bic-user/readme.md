@@ -9,7 +9,7 @@
 #### Dataset: [SpaceNet AWS S3](https://aws.amazon.com/public-datasets/spacenet/)
 
 #### Approach:
-This implementation uses a fully convolutional network (FCN), based on this [paper](https://goo.gl/FlcsMg). In addition, the approach uses a custom post-processing developed to merge and polygonize network output. Source code is included in this repository. The code is also hosted in a working Amazon Machine Instance located [here](https://aws.amazon.com/).
+This implementation uses a fully convolutional network (FCN), based on this [paper](https://goo.gl/FlcsMg). In addition, the approach uses a custom post-processing developed to merge and polygonize network output. Source code is included in this repository.
 
 
 1. Preprocessing
